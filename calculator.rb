@@ -1,14 +1,4 @@
-# def main_menu
-# puts "What do you want to do Mathwise?"
-#   puts "1) Add"
-#   puts "2) Subtract"
-#   puts "3) Multiply"
-#   puts "4) Divide"
-#   input = gets.strip.to_i
 
-#   case
-
-# end
 
 def greeting
   puts "---------------\n\nLet's Do some Mathy things!\n\n------------------"
