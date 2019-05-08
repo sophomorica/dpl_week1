@@ -111,8 +111,9 @@ require "pry"
   {s_item: "Blue Stuff", price: "6 Credits"}
 
 ]
+
 def seperator
-puts "*" * 30
+  puts "*" * 30
 end 
 
 def main_menu
@@ -123,7 +124,7 @@ def main_menu
   puts "3) Good Bye"
   user_selection
 end
-def user_selection
+def user_selection 
   
   input = gets.strip.to_i
   case input
