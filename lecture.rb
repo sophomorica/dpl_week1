@@ -115,7 +115,7 @@ people = [
   puts "#{i + 1}. #{person[:first_name]} #{person[:last_name]}"
  end 
 
-#  ---------------------------WEDNESDAY MAY 8 Lecture-------------------
+#  -----------***----------------WEDNESDAY MAY 8 Lecture-------------***---------------
 
 # talking about gems and rubygems.org "omniauth-facebook" "omniauth-amazon" "pry"
 
