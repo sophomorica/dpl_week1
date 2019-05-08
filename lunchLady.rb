@@ -1,4 +1,4 @@
-# # require "pry"
+require "pry"
 
 # # class Person
 # #   attr_accessor :name, :credits
@@ -101,7 +101,7 @@
 # def exit_application
 #   puts "\n---------------GOOD BYE------------------------\n \n \n"
 # end
-
+@cart = []
 @main_dishes = [
   { item: "Hush Gruppies", price: "23 Credits" },
   { item: "Sga-Betty", price: "22 Credits"}
@@ -111,15 +111,18 @@
   {item: "Blue Stuff", price: "6 Credits"}
 
 ]
-
+def seperator
+puts "*" * 30
+end 
 def main_menu
   puts "\n-------------------\nYo Choices\n-------------------\n"
+  seperator
   puts "1) Pick Food"
   puts "2) Good Bye"
-  # puts "3) Modify"
-  # puts "4) Delete Contact"
-  # puts "5) Exit"
-
+  user_selection
+end
+def user_selection
+  
   input = gets.strip.to_i
   case input
     when 1
@@ -148,14 +151,17 @@ def food_items
   input = gets.strip.to_i
 
   case input
-  when input = @main_dishes.length + 1
-    cart(@main_dishes[0])
-  when input = @main_dishes.length + 2
-    cart(@main_dishes[1])
+  when input = @main_dishes.length - 1
+    @cart << @main_dishes[0]
+  when input = @main_dishes.length  
+    @cart << @main_dishes[1]
   end
-
-
+  binding.pry
+  @cart.each_with_index do |f,i|
+  puts "You chose #{f[:name]} it costs #{f[:price]}"
+ end
 end
+
 
 
 
