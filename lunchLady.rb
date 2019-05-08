@@ -13,19 +13,19 @@ end
   
   
 class LunchLady
-    
-    def initialize
-      @main_dishes = []
-      # user name
-      # money
-    end
-    
-
+  puts "what do you wanna eat"
+  # display garbage
+  def initialize
+    @main_dishes = []
+    @side_dishes = []
+    @user_name = name 
+    # money
+  end
+  
+  
 end
 
 LunchLady.new
-
-#think about how you would store the information
 
 def main_menu
   puts "\n-------------------\nYo Choices\n-------------------\n"
@@ -49,6 +49,8 @@ def main_menu
   
   end
 end
+#think about how you would store the information
+
 
 
 
@@ -58,3 +60,11 @@ end
 def exit_application
   puts "\n---------------GOOD BYE------------------------\n \n \n"
 end
+
+goop = MainDish.new("Goop","20 Credits")
+
+sgabetty = MainDish.new("Sga-betty", "22 Credits")
+
+creamyWhite = SideDish.new("Creamy White", "7 Credits")
+
+creamyBlue = SideDish.new("Creamy Blue", "6 Credits")
