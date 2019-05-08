@@ -1,4 +1,4 @@
-
+require "pry"
 
 def greeting
   puts "---------------\n\nLet's Do some Mathy things!\n\n------------------"

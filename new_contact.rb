@@ -1,3 +1,4 @@
+require "pry"
 @contacts = [
   { name: "Sam", phone: "801-222-4444" },
   { name: "Milo", phone: "801-666-1212",}

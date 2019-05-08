@@ -1,3 +1,5 @@
+require "pry"
+
 # # arr = Array.new #=> []
 # # arr = Array.new(5) #=>[nil, nil, nil, nil, nil]
 # # arr = []
@@ -112,3 +114,13 @@ people = [
  people.each_with_index do |person, i|
   puts "#{i + 1}. #{person[:first_name]} #{person[:last_name]}"
  end 
+
+#  ---------------------------WEDNESDAY MAY 8 Lecture-------------------
+
+# talking about gems and rubygems.org "omniauth-facebook" "omniauth-amazon" "pry"
+
+# installing gems cmd = "gem install *name of gem*" >> We installed 'bundler'
+
+# bundler is a way to manage gem versions across dif environments 
+
+

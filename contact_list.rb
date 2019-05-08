@@ -1,3 +1,4 @@
+require "pry"
 @contacts = ["jack", "jill", "bob", "shirly", "fran"]
 
 
