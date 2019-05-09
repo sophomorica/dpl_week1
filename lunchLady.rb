@@ -18,17 +18,21 @@ class LunchLady
       def initialize
         @main_dish = [
         MainDish.new("Steak", 20),
-        MainDish.new("Salad", 17)
+        MainDish.new("Peach Salad", 17),
+        MainDish.new("Turkey Leg", 9),
+        MainDish.new("Boring Burger", 6)
         ]
         @side_dish = [
         SideDish.new("grapes", 1),
-        SideDish.new("apples", 2)
+        SideDish.new("apples", 2),
+        SideDish.new("mash", 4),
+        SideDish.new("sausages", 2),
 
         ]
         @cart = [
           
         ]
-        @wallet = [40]
+        @wallet = []
 
         greet
         food_menu
@@ -76,13 +80,14 @@ class LunchLady
         seperator
         puts "\n\nWhat side dish do you want\n"
         @side_dish.each_with_index do |f,i|
-          puts "\n\n#{i + 1}) #{f.item.upcase} $$: #{f.price}\n"   
+          puts "\n\n#{i + 1}) #{f.item.upcase} -----------------$ #{f.price}\n"   
         end
 
         input = gets.strip.to_i
+        
         @cart << @side_dish[input - 1]
 
-        puts "You chose\n #{@side_dish[input - 1].item}"
+        puts "You chose: #{@side_dish[input - 1].item}"
         
       end
 
@@ -96,9 +101,9 @@ class LunchLady
 
         end
     
-        puts "Your Total: #{@cart.map do |x|
+        puts "Your Total: $#{@cart.map do |x|
         x.price
-    end.sum}\n\n"
+        end.sum}\n\n"
 
         
         seperator
@@ -126,7 +131,7 @@ class LunchLady
             side_menu
             main_menu
           when 3
-            purchase_food
+            view_total
           when 4
             purchase_food
           else
@@ -142,20 +147,29 @@ class LunchLady
 
         total_cost = @cart.map do |x|
           x.price
-      end
+          end
       
-      puts "$#{total_cost.sum}\n"
-      seperator
-      if @wallet.sum >= total_cost.sum do
-       puts "You have $#{(@wallet.sum - total_cost.sum)} left"
-      else 
-        puts "You don't have enough money"
-        binding.pry
-      end
+        puts "$#{total_cost.sum}\n"
+        seperator
+      
+
+        puts "You have $#{(@wallet.sum - total_cost.sum)} left"
+     
         main_menu
-      end 
+       
     
-    end
+      end
+
+      def view_total
+        seperator
+        total_cost = @cart.map do |x|
+          x.price
+          end
+        puts "\nYour Total: $#{total_cost.sum}\n"
+        puts "Your Wallet: $#{@wallet.sum}"
+        seperator
+
+      end
   
     
     
