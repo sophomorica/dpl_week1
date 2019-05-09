@@ -28,6 +28,7 @@ class LunchLady
         @cart = [
           
         ]
+        @wallet = [40]
 
         greet
         food_menu
@@ -46,6 +47,12 @@ class LunchLady
         seperator
 
         puts "\n\nHello #{name}\n\n\n"
+
+        puts "\n\nHow much money do you have?\n\n"
+        
+        input = gets.to_i
+        @wallet << input 
+
        
         
       end
@@ -81,7 +88,7 @@ class LunchLady
 
       def view_cart
         seperator
-        puts "You got: "
+        puts "\nYou got: "
       
 
         @cart.each_with_index do |f,i|
@@ -89,7 +96,9 @@ class LunchLady
 
         end
     
-
+        puts "Your Total: #{@cart.map do |x|
+        x.price
+    end.sum}\n\n"
 
         
         seperator
@@ -126,19 +135,27 @@ class LunchLady
       end
  
       def purchase_food
+
         seperator
-        seperator
-        puts "This is the prices of the items"
-        seperator
-        seperator
+        puts "\nYour Total: "
+
+
         total_cost = @cart.map do |x|
           x.price
       end
       
-      puts "#{total_cost.sum}"
+      puts "$#{total_cost.sum}\n"
+      seperator
+      if @wallet.sum >= total_cost.sum do
+       puts "You have $#{(@wallet.sum - total_cost.sum)} left"
+      else 
+        puts "You don't have enough money"
+        binding.pry
+      end
         main_menu
       end 
     
+    end
   
     
     
