@@ -25,7 +25,10 @@ class LunchLady
     SideDish.new("apples", 2)
 
     ]
-    @cart = []
+    @cart = [
+      
+    ]
+    # @price = [@cart]
     greet
     food_menu
     side_menu
@@ -49,7 +52,7 @@ class LunchLady
   def food_menu
     seperator
     @main_dish.each_with_index do |f,i|
-      puts "item: #{i + 1}) #{f.item.upcase} $$: #{f.price}\n"   
+      puts "#{i + 1}) #{f.item.upcase} $$: #{f.price}\n"   
     end
 
     input = gets.strip.to_i
@@ -63,7 +66,7 @@ class LunchLady
   def side_menu
     seperator
     @side_dish.each_with_index do |f,i|
-      puts "item: #{i + 1}) #{f.item.upcase} $$: #{f.price}\n"   
+      puts "#{i + 1}) #{f.item.upcase} $$: #{f.price}\n"   
     end
 
     input = gets.strip.to_i
@@ -97,13 +100,14 @@ class LunchLady
     puts "Final Decision"
     puts "1) View Cart Again"
     puts "2) Get More Food"
-    puts "3) Purchase"
-    puts "4) Exit"
+    puts "3) total cost"
+    puts "4) Purchase"
+    puts "5) Exit"
     input = gets.to_i
     case input
       when 1
         view_cart
-        exit
+        
     
       when 2
         food_menu
@@ -112,14 +116,34 @@ class LunchLady
       when 3
         purchase_food
       when 4
-        exit
+        purchase_food
       else
         exit
     end
   end
+ 
+  def purchase_food
+    seperator
+    seperator
+    puts "This is the prices of the items"
+    seperator
+    seperator
+    total_cost = @cart.map do |x|
+      x.price
+   end
+   
+   puts "#{total_cost.sum}"
+    main_menu
+  end 
+    
+  
+    
+    
+  end
+
+  
 
 
-end
 
 
 
